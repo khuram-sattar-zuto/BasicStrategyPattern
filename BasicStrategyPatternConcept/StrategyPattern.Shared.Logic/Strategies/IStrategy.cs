@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Strategy_Pattern
+﻿namespace StrategyPattern.Shared.Logic.Strategies
 {
     public interface IStrategy
     {

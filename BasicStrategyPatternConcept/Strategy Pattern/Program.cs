@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using StrategyPattern.Shared.Logic.Strategies;
 
 namespace Strategy_Pattern
 {
-    internal class Program
+    internal static class Program
     {
-
         public static void Main(string[] args)
         {
             var randomList = new List<string>{ "C", "B", "A"};
@@ -17,20 +15,6 @@ namespace Strategy_Pattern
             var strategyB = new StrategyB();
             var resultB = strategyB.DoAlgorithm(randomListB);
             Console.WriteLine($"Strategy B result - {string.Join(",", resultB)}");
-
-            var decider = new Decider();
-            var strategy = decider.GetStrategy(1);
-            var resultC = strategy.DoAlgorithm(randomListB);
-            Console.WriteLine($"Strategy result - {string.Join(",", resultC)}");
-            
-            var randomListD = new List<string>{ "C", "B", "A", "X"};
-            var genericDecider = new GenericDecider();
-            var genericStrategy = genericDecider.GetStrategy(2);
-            var resultD = genericStrategy.DoAlgorithm(randomListD);
-            Console.WriteLine($"Generic Strategy result - {string.Join(",", resultD)}");
-            genericStrategy = genericDecider.GetStrategy(1);
-            var resultD2 = genericStrategy.DoAlgorithm(randomListD);
-            Console.WriteLine($"Generic Strategy result called twice - {string.Join(",", resultD2)}");
         }
     }
 }
