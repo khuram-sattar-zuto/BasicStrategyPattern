@@ -7,7 +7,7 @@ namespace Strategy_Pattern_Test
     {
         // private static readonly IPassportDetails _passportDetails = new PassportDetails();    
         // private static readonly IBankSlipsDetails _bankSlipsDetails = new BankSlipsDetails();
-        
+        // potentially add IBankOfChris interface and IBankOfGary interface
         private static readonly ICustomerDetails _customerDetails = new CustomerDetails();
         
         public static void Main(string[] args)
@@ -49,6 +49,22 @@ namespace Strategy_Pattern_Test
             {
                 customerDetails.BankSlips = _customerDetails.GetBankSlips(client);
             }
+            
+            if (carFinance.VehicleLogsRequired)
+            {
+                customerDetails.VehicleLogs = _customerDetails.GetVehicleLogs(client);
+            }
+            
+            if (carFinance.VehicleMotRequired)
+            {
+                customerDetails.VehicleMot = _customerDetails.GetVehicleMot(client);
+            }
+            
+            Console.WriteLine($"Passport - {customerDetails.Passport}");
+            Console.WriteLine($"DriversLicence - {customerDetails.DriversLicence}");
+            Console.WriteLine($"BankSlips - {customerDetails.BankSlips}");
+            Console.WriteLine($"VehicleLogs - {customerDetails.VehicleLogs}");
+            Console.WriteLine($"VehicleMot - {customerDetails.VehicleMot}");
         }
     }
 }
